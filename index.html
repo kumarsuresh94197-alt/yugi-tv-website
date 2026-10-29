@@ -1,116 +1,442 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b12">
-  <meta name="description" content="YUGI TV — your entertainment, one tap away.">
-  <title>YUGI TV | Official App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b14">
+
+  <title>YUGI TV — Official Website</title>
+
+  <meta name="description"
+        content="Welcome to YUGI TV. Explore the app and download the Android APK from the official release page.">
+
   <style>
-    :root { color-scheme: dark; --bg:#090b12; --panel:#121622; --line:#252c3d; --text:#f5f7ff; --muted:#aab2c5; --accent:#7c5cff; --accent2:#19d3c5; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:radial-gradient(ellipse at 80% 0%,#24184a 0,transparent 38%),var(--bg); color:var(--text); }
-    a { color:inherit; }
-    .wrap { width:min(1100px,92%); margin:auto; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
-    .brand { font-weight:900; letter-spacing:2px; font-size:1.15rem; }
-    .brand span { color:var(--accent2); }
-    .pill { border:1px solid var(--line); padding:9px 13px; border-radius:999px; color:var(--muted); font-size:.82rem; }
-    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:35px; align-items:center; padding:62px 0 75px; }
-    .eyebrow { color:var(--accent2); text-transform:uppercase; letter-spacing:3px; font-size:.78rem; font-weight:800; }
-    h1 { font-size:clamp(3rem,8vw,5.7rem); line-height:.96; margin:18px 0; letter-spacing:-3px; }
-    h1 span { background:linear-gradient(90deg,#a99aff,#54e9df); color:transparent; background-clip:text; }
-    .lead { color:var(--muted); line-height:1.75; max-width:580px; font-size:1.06rem; }
-    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:27px; }
-    .btn { display:inline-flex; justify-content:center; align-items:center; padding:14px 20px; border-radius:12px; text-decoration:none; font-weight:800; border:1px solid var(--line); transition:transform .2s,opacity .2s; }
-    .btn:hover { transform:translateY(-2px); }
-    .primary { background:linear-gradient(110deg,var(--accent),#5540c9); border-color:transparent; }
-    .secondary { background:#141927; }
-    .note { color:#8992a8; font-size:.82rem; margin-top:13px; line-height:1.6; }
-    .mock { border:1px solid #34314e; border-radius:28px; padding:14px; background:linear-gradient(145deg,#171b2b,#0e111a); box-shadow:0 25px 90px #0008; transform:rotate(1deg); }
-    .screen { min-height:330px; border-radius:19px; padding:20px; background:linear-gradient(145deg,#28204d,#101827 65%,#0b111a); display:flex; flex-direction:column; justify-content:space-between; }
-    .screen-top { display:flex; justify-content:space-between; color:#c7c5e8; font-size:.8rem; }
-    .screen-logo { font-size:2.6rem; font-weight:950; letter-spacing:2px; margin-top:45px; }
-    .screen-logo span { color:var(--accent2); }
-    .screen-sub { color:#c4c8d7; }
-    .fake-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:24px; }
-    .fake-cards div { height:58px; border-radius:10px; background:linear-gradient(135deg,#6451b7,#222b45); border:1px solid #ffffff15; }
-    section { padding:36px 0 65px; }
-    .section-title { font-size:clamp(1.8rem,4vw,2.5rem); margin:0 0 12px; }
-    .section-lead { color:var(--muted); line-height:1.7; max-width:650px; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px; }
-    .card { background:#111520cc; border:1px solid var(--line); border-radius:18px; padding:23px; }
-    .icon { width:42px; height:42px; display:grid; place-items:center; background:#282148; border-radius:12px; font-size:1.25rem; }
-    .card h3 { margin:16px 0 8px; }
-    .card p { color:var(--muted); line-height:1.65; margin:0; font-size:.94rem; }
-    .download { background:linear-gradient(120deg,#17152b,#101a25); border:1px solid #34314e; border-radius:24px; padding:clamp(24px,5vw,45px); display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .download p { color:var(--muted); line-height:1.65; }
-    footer { border-top:1px solid var(--line); padding:25px 0 35px; color:#8992a8; font-size:.85rem; }
-    footer .foot { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-    @media(max-width:760px) { .hero { grid-template-columns:1fr; padding:40px 0 55px; } .mock { max-width:460px; width:100%; margin:auto; } .grid { grid-template-columns:1fr; } .download { align-items:flex-start; flex-direction:column; } h1 { letter-spacing:-2px; } }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #080b14;
+      --card: #111827;
+      --text: #f8fafc;
+      --muted: #a5b4c8;
+      --blue: #3b82f6;
+      --cyan: #22d3ee;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(ellipse at top, #172554 0%, transparent 45%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8, 11, 20, 0.75);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #06111e;
+      font-weight: 900;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 0 80px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: rgba(34, 211, 238, 0.08);
+      color: var(--cyan);
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #60a5fa, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 23px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.92;
+    }
+
+    .primary {
+      color: #06111e;
+      background: linear-gradient(135deg, #60a5fa, #22d3ee);
+    }
+
+    .secondary {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    section {
+      padding: 55px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-size: clamp(28px, 5vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .section-lead {
+      max-width: 680px;
+      margin: 0 auto 35px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.02)
+      );
+      border: 1px solid var(--border);
+      padding: 26px;
+      border-radius: 18px;
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .download-box {
+      text-align: center;
+      padding: 42px 24px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.14),
+        rgba(34, 211, 238, 0.06)
+      );
+      border-radius: 24px;
+    }
+
+    .download-box h2 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .download-box p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .download-box .buttons {
+      margin-bottom: 18px;
+    }
+
+    .small-note {
+      font-size: 12px !important;
+      margin-top: 16px !important;
+    }
+
+    .version {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    footer {
+      margin-top: 55px;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 750px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 0 55px;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="wrap">
-    <div class="brand">YUGI<span>TV</span></div>
-    <div class="pill">ANDROID APP</div>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home" aria-label="YUGI TV Home">
+        <span class="logo-icon">Y</span>
+        <span>YUGI TV</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <div class="wrap hero">
-      <div>
-        <div class="eyebrow">Entertainment, one tap away</div>
-        <h1>Meet <span>YUGI TV.</span></h1>
-        <p class="lead">Your home for entertainment on Android. Explore the app, check out its features, and get the official APK when it is published.</p>
-        <div class="actions">
-          <a class="btn primary" href="#download">Get the APK ↓</a>
-          <a class="btn secondary" href="#features">Explore features</a>
-        </div>
-        <p class="note">The APK download button will work once you add your GitHub Releases link below.</p>
-      </div>
-      <div class="mock" aria-label="Decorative YUGI TV app preview">
-        <div class="screen">
-          <div class="screen-top"><span>YUGI TV</span><span>● ● ●</span></div>
-          <div>
-            <div class="screen-logo">YUGI<span>TV</span></div>
-            <div class="screen-sub">Your entertainment hub</div>
-            <div class="fake-cards"><div></div><div></div><div></div></div>
-          </div>
-          <div class="screen-top"><span>Made for Android</span><span>▶ Play</span></div>
-        </div>
-      </div>
-    </div>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="badge">📺 YOUR ENTERTAINMENT EXPERIENCE</div>
 
-    <section class="wrap" id="features">
-      <h2 class="section-title">Made for easy viewing.</h2>
-      <p class="section-lead">A clean place to learn about YUGI TV and find the official app download. Replace these starter descriptions with the real features in your app.</p>
-      <div class="grid">
-        <article class="card"><div class="icon">📺</div><h3>TV experience</h3><p>A simple place to access the TV content supported by your app.</p></article>
-        <article class="card"><div class="icon">⚡</div><h3>Simple interface</h3><p>Designed to make it easy to find the content and features you use.</p></article>
-        <article class="card"><div class="icon">📱</div><h3>Android-ready</h3><p>Download the APK from the official release page once it is available.</p></article>
+        <h1>
+          Welcome to<br>
+          <span class="gradient-text">YUGI TV</span>
+        </h1>
+
+        <p>
+          Discover YUGI TV, explore the app, and get the available
+          Android version from the official release page.
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary"
+             href="https://github.com/kumarsuresh94197-alt/yugi-tv-website/releases/download/v1.0.0/base.apk">
+            📥 Download APK
+          </a>
+
+          <a class="btn secondary" href="#features">
+            Explore Features ↓
+          </a>
+        </div>
+
+        <div class="version">Current release: v1.0.0</div>
       </div>
     </section>
 
-    <section class="wrap" id="download">
-      <div class="download">
-        <div>
-          <div class="eyebrow">YUGI TV for Android</div>
-          <h2 class="section-title">Ready to get the app?</h2>
-          <p>Use the download button after you publish your APK as a GitHub Release. Only install APKs from sources you trust.</p>
+    <section id="features">
+      <div class="container">
+        <h2 class="section-heading">Why YUGI TV?</h2>
+
+        <p class="section-lead">
+          A simple home for YUGI TV app information and downloads.
+          Check the app's actual features and compatibility before installing.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">📺</div>
+            <h3>TV Experience</h3>
+            <p>
+              Designed as an Android TV app. Availability and compatibility
+              depend on the app build and your device.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⬇️</div>
+            <h3>Easy Download</h3>
+            <p>
+              Get the published APK directly from the YUGI TV GitHub Release.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">✨</div>
+            <h3>Simple Website</h3>
+            <p>
+              Find the download and release information in one convenient place.
+            </p>
+          </article>
         </div>
-        <a class="btn primary" id="downloadBtn" href="https://github.com/" target="_blank" rel="noopener">APK coming soon</a>
       </div>
-      <p class="note">Site owner: edit <code>index.html</code> and replace the placeholder link in <code>id="downloadBtn"</code> with your release's APK download URL.</p>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="download-box">
+          <h2>Get <span class="gradient-text">YUGI TV</span></h2>
+
+          <p>
+            YUGI TV v1.0.0 is available as an Android APK.
+            Download the release and check that your device is compatible
+            before installing.
+          </p>
+
+          <div class="buttons">
+            <a class="btn primary"
+               href="https://github.com/kumarsuresh94197-alt/yugi-tv-website/releases/download/v1.0.0/base.apk">
+              📥 Download YUGI TV APK
+            </a>
+
+            <a class="btn secondary"
+               href="https://github.com/kumarsuresh94197-alt/yugi-tv-website/releases/tag/v1.0.0"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Official Release ↗
+            </a>
+          </div>
+
+          <p class="small-note">
+            Only install APKs from sources you trust. Android may ask you
+            to review installation permissions for apps downloaded outside
+            the Play Store.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap foot">
-      <span>© <span id="year"></span> YUGI TV</span>
-      <span>Unofficial fan-created project page. Use only content and streams you are authorized to distribute.</span>
+    <div class="container">
+      <p>© <span id="year"></span> YUGI TV. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/kumarsuresh94197-alt/yugi-tv-website"
+           target="_blank"
+           rel="noopener noreferrer">
+          GitHub Repository
+        </a>
+      </p>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
